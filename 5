@@ -1,0 +1,24 @@
+void jsTest() throws InterruptedException {
+    void cookieTest(){
+        getDriver().manage().addCookie(new Cookie("sale", "2023"));
+        for(Cookie cookie: getDriver().manage().getCookies()){
+            System.out.println(cookie.getName());
+            System.out.println(cookie.getName() + " " + cookie.getExpiry());
+        }
+    }
+
+void test() throws InterruptedException {
+        getDriver().switchTo().newWindow(WindowType.WINDOW);
+        getDriver().navigate().to("https://www.google.com/");
+
+        Thread.sleep(1000);
+        Thread.sleep(5000);
+        getDriver().switchTo().window(originalWindow);
+
+        for(String windowHandle: getDriver().getWindowHandles()){
+            System.out.println(windowHandle);
+        }
+
+        getDriver().close();
+    }
+}
